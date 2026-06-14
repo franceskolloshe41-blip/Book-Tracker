@@ -83,7 +83,9 @@ export default function Cerca({ addBook, currentScreen, nav }) {
     try {
       const genreQ = GENRE_MAP[filter] || "";
       // Nessun langRestrict — cerca in tutte le lingue per massima copertura
-      const url = "https://www.googleapis.com/books/v1/volumes?q=" + encodeURIComponent(query) + genreQ + "&maxResults=15&orderBy=relevance";
+      const url = "https://www.googleapis.com/books/v1/volumes?q=" + encodeURIComponent(query) + genreQ + "&maxResults=15&orderBy=relevance&key=AIzaSyABIvI6EuEgF5owbVojMlleQXetPIEZNPs"; 
+
+
       const res = await fetch(url);
       const data = await res.json();
       if (!data.items) { setResults([]); setLoading(false); return; }
